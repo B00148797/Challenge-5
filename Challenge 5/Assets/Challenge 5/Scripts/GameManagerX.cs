@@ -45,7 +45,6 @@ public class GameManagerX : MonoBehaviour
             {
                 Instantiate(targetPrefabs[index], RandomSpawnPosition(), targetPrefabs[index].transform.rotation);
             }
-            
         }
     }
 
@@ -57,7 +56,6 @@ public class GameManagerX : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, 0);
         return spawnPosition;
-
     }
 
     // Generates random square index from 0 to 3, which determines which square the target will appear in
@@ -86,5 +84,4 @@ public class GameManagerX : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 }

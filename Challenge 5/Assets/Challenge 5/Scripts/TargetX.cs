@@ -23,19 +23,17 @@ public class TargetX : MonoBehaviour
 
         transform.position = RandomSpawnPosition(); 
         StartCoroutine(RemoveObjectRoutine()); // begin timer before target leaves screen
-
     }
 
     // When target is clicked, destroy it, update score, and generate explosion
-    private void OnMouseEnter()
+    private void OnMouseDown()// OnMouseEnter -> OnMouseDown
     {
         if (gameManagerX.isGameActive)
         {
             Destroy(gameObject);
             gameManagerX.UpdateScore(pointValue);
             Explode();
-        }
-               
+        }       
     }
 
     // Generate a random spawn position based on a random index from 0 to 3
@@ -46,7 +44,6 @@ public class TargetX : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, 0);
         return spawnPosition;
-
     }
 
     // Generates random square index from 0 to 3, which determines which square the target will appear in
@@ -54,7 +51,6 @@ public class TargetX : MonoBehaviour
     {
         return Random.Range(0, 4);
     }
-
 
     // If target that is NOT the bad object collides with sensor, trigger game over
     private void OnTriggerEnter(Collider other)
@@ -65,7 +61,6 @@ public class TargetX : MonoBehaviour
         {
             gameManagerX.GameOver();
         } 
-
     }
 
     // Display explosion particle at object's position
@@ -82,7 +77,5 @@ public class TargetX : MonoBehaviour
         {
             transform.Translate(Vector3.forward * 5, Space.World);
         }
-
     }
-
 }
